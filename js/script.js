@@ -21,3 +21,31 @@ const getWord = async function () {
   word = wordArray[randomIndex].trim();
   placeholder(word);
 };
+
+// Fire off the game
+getWord();
+// Display our symbols as placeholders for the chosen word's letters
+const placeholder = function (word) {
+  const placeholderLetters = [];
+  for (const letter of word) {
+    // console.log(letter);
+    placeholderLetters.push("●");
+  }
+  wordInProgress.innerText = placeholderLetters.join("");
+};
+
+guessLetterButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  // Empty message paragraph
+  message.innerText = "";
+  // Let's grab what was entered in the input
+  const guess = letterInput.value;
+  // Let's make sure that it is a single letter
+  const goodGuess = validateInput(guess);
+
+  if (goodGuess) {
+    // We've got a letter! Let's guess!
+    makeGuess(guess);
+  }
+  letterInput.value = "";
+});
