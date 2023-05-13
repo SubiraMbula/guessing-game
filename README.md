@@ -1,6 +1,6 @@
 # GUESS THE GAME
 
-This is a fun game that can be used to boost your Interlectual skills and fast thinking.
+This is a fun game that can be used to boost your Intellectual skills and fast thinking.
 
 ## Languages used
 1. Html
