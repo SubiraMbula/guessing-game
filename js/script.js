@@ -125,3 +125,19 @@ const validateInput = function (input) {
       remainingGuessesSpan.innerText = `${remainingGuesses} guesses`;
     }
   };
+
+  const checkIfWin = function () {
+    if (word.toUpperCase() === wordInProgress.innerText) {
+      message.classList.add("win");
+      message.innerHTML = `<p class="highlight">You guessed the correct word! Congrats!</p>`;
+  
+      startOver();
+    }
+  };
+  
+  const startOver = function () {
+    guessLetterButton.classList.add("hide");
+    remainingGuessesElement.classList.add("hide");
+    guessedLettersElement.classList.add("hide");
+    playAgainButton.classList.remove("hide");
+  };
