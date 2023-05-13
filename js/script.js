@@ -54,13 +54,13 @@ const validateInput = function (input) {
     const acceptedLetter = /[a-zA-Z]/;
     if (input.length === 0) {
       // Is the input empty?
-      message.innerText = "Please enter a letter.";
+      message.innerText = "Please enter a letter 😊.";
     } else if (input.length > 1) {
       // Did you type more than one letter?
-      message.innerText = "Please enter a single letter.";
+      message.innerText = "Please enter a single letter 😳.";
     } else if (!input.match(acceptedLetter)) {
       // Did you type a number, a special character or some other non letter thing?
-      message.innerText = "Please enter a letter from A to Z.";
+      message.innerText = "Please enter a letter from A to Z 😁.";
     } else {
       // We finally got a single letter, omg yay
       return input;
@@ -70,7 +70,7 @@ const validateInput = function (input) {
   const makeGuess = function (guess) {
     guess = guess.toUpperCase();
     if (guessedLetters.includes(guess)) {
-      message.innerText = "You already guessed that letter, silly. Try again.";
+      message.innerText = "You already guessed that letter, silly 😝🤪. Try again.";
     } else {
       guessedLetters.push(guess);
       console.log(guessedLetters);
@@ -110,14 +110,14 @@ const validateInput = function (input) {
     const upperWord = word.toUpperCase();
     if (!upperWord.includes(guess)) {
       // womp womp - bad guess, lose a chance
-      message.innerText = `Sorry, the word has no ${guess}.`;
+      message.innerText = `Sorry 🥺😭, the word has no ${guess}.`;
       remainingGuesses -= 1;
     } else {
-      message.innerText = `Good guess! The word has the letter ${guess}.`;
+      message.innerText = `Good guess 🥳🤩🎉🎉🥳! The word has the letter ${guess}.`;
     }
   
     if (remainingGuesses === 0) {
-      message.innerHTML = `Game over. The word was <span class="highlight">${word}</span>.`;
+      message.innerHTML = `Game over 😫🙃. The word was <span class="highlight">${word}</span>.`;
       startOver();
     } else if (remainingGuesses === 1) {
       remainingGuessesSpan.innerText = `${remainingGuesses} guess`;
