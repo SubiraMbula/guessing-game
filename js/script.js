@@ -105,4 +105,23 @@ const validateInput = function (input) {
     wordInProgress.innerText = revealWord.join("");
     checkIfWin();
   };
+
+  const updateGuessesRemaining = function (guess) {
+    const upperWord = word.toUpperCase();
+    if (!upperWord.includes(guess)) {
+      // womp womp - bad guess, lose a chance
+      message.innerText = `Sorry, the word has no ${guess}.`;
+      remainingGuesses -= 1;
+    } else {
+      message.innerText = `Good guess! The word has the letter ${guess}.`;
+    }
   
+    if (remainingGuesses === 0) {
+      message.innerHTML = `Game over. The word was <span class="highlight">${word}</span>.`;
+      startOver();
+    } else if (remainingGuesses === 1) {
+      remainingGuessesSpan.innerText = `${remainingGuesses} guess`;
+    } else {
+      remainingGuessesSpan.innerText = `${remainingGuesses} guesses`;
+    }
+  };
