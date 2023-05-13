@@ -79,4 +79,30 @@ const validateInput = function (input) {
       updateWordInProgress(guessedLetters);
     }
   };
+
+  const showGuessedLetters = function () {
+    // Clear the list first
+    guessedLettersElement.innerHTML = "";
+    for (const letter of guessedLetters) {
+      const li = document.createElement("li");
+      li.innerText = letter;
+      guessedLettersElement.append(li);
+    }
+  };
+  
+  const updateWordInProgress = function (guessedLetters) {
+    const wordUpper = word.toUpperCase();
+    const wordArray = wordUpper.split("");
+    const revealWord = [];
+    for (const letter of wordArray) {
+      if (guessedLetters.includes(letter)) {
+        revealWord.push(letter.toUpperCase());
+      } else {
+        revealWord.push("●");
+      }
+    }
+    // console.log(revealWord);
+    wordInProgress.innerText = revealWord.join("");
+    checkIfWin();
+  };
   
