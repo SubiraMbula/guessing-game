@@ -156,6 +156,6 @@ const validateInput = function (input) {
     // show the right UI elements
     guessLetterButton.classList.remove("hide");
     playAgainButton.classList.add("hide");
-    remainingGuessesElement.classList.remove("hide")
+    remainingGuessesElement.classList.remove("hide");
     guessedLettersElement.classList.remove("hide");
   });
